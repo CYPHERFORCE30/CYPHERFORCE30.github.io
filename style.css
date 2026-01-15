@@ -1,0 +1,216 @@
+:root {
+    --bg-color: #050510;
+    --text-color: #ffffff;
+    --accent-color: #7000ff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Canvas Background */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Navigation */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    background: rgba(10, 10, 20, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero-content {
+    text-align: center;
+    z-index: 1;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #a0a0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+}
+
+/* Projects Section */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+/* About & Contact */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 4rem;
+    text-align: center;
+    max-width: 800px;
+}
+
+.email-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .glass-nav {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none; /* Mobile menu logic to be added if specific request */
+    }
+}
