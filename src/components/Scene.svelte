@@ -116,8 +116,7 @@
         }
 
         // Interaction: Only on Desktop to prevent scroll blocking on mobile
-        // We check window width or pointer accuracy
-        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        // We check window width or pointer accuracy (reuses isDesktop from above)
 
         if (isDesktop) {
             const mouse = Matter.Mouse.create(document.body);
