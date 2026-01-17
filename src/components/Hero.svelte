@@ -1,8 +1,6 @@
 <script lang="ts">
     import { Canvas } from "@threlte/core";
     import Scene from "./Scene.svelte";
-
-    let zeroG = false;
 </script>
 
 <div class="w-full h-screen relative overflow-hidden bg-gray-950">
@@ -16,17 +14,9 @@
         class="absolute inset-0 z-0 pointer-events-none md:pointer-events-auto"
     >
         <Canvas>
-            <Scene {zeroG} />
+            <Scene />
         </Canvas>
     </div>
-
-    <!-- Zero G Toggle -->
-    <button
-        class="absolute bottom-10 right-10 z-20 px-6 py-3 border border-cyan-500 text-cyan-500 rounded-full font-mono uppercase tracking-widest hover:bg-cyan-500/10 transition-colors backdrop-blur-md cursor-pointer"
-        on:click={() => (zeroG = !zeroG)}
-    >
-        {zeroG ? "Gravity: OFF" : "Gravity: ON"}
-    </button>
 
     <div
         class="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none"
