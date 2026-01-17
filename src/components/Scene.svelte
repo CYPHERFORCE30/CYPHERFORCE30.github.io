@@ -86,28 +86,33 @@
         Matter.World.add(world, wallBodies);
 
         // Skills
-        const skills = [
-            "Python",
-            "Svelte",
-            "React",
-            "TS",
-            "Node",
-            "AI/ML",
-            "Three",
-            "GLSL",
-        ];
-        for (let i = 0; i < bubbleCount; i++) {
-            const r = 25 + Math.random() * 25;
-            const b = Matter.Bodies.circle(
-                Math.random() * $size.width,
-                -Math.random() * 1000,
-                r,
-                { restitution: 0.8, friction: 0.005, frictionAir: 0.02 },
-            );
-            // @ts-ignore
-            b.label = skills[i % skills.length];
-            Matter.World.add(world, b);
-            bodies.push({ id: b.id, body: b });
+        // Skills (Only on Desktop)
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+        if (isDesktop) {
+            const skills = [
+                "Python",
+                "Svelte",
+                "React",
+                "TS",
+                "Node",
+                "AI/ML",
+                "Three",
+                "GLSL",
+            ];
+            for (let i = 0; i < bubbleCount; i++) {
+                const r = 25 + Math.random() * 25;
+                const b = Matter.Bodies.circle(
+                    Math.random() * $size.width,
+                    -Math.random() * 1000,
+                    r,
+                    { restitution: 0.8, friction: 0.005, frictionAir: 0.02 },
+                );
+                // @ts-ignore
+                b.label = skills[i % skills.length];
+                Matter.World.add(world, b);
+                bodies.push({ id: b.id, body: b });
+            }
         }
 
         // Interaction: Only on Desktop to prevent scroll blocking on mobile
